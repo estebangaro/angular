@@ -1,0 +1,35 @@
+<div>
+  <h2>Products</h2>
+  <div *ngIf="productsAdded.length == 0">
+    <p>Add products to your cart</p>
+  </div>
+  <div class="cart-item" *ngFor="let product of productsAdded;index as productId">
+      <span>{{product.quantity}}</span>
+      <span>{{product.product.name}}</span>
+      <span>{{product.product.description}}</span>
+      <span>{{product.product.price}}</span>
+  </div>
+  <div>
+    <div>
+      <h2>Checkout</h2>
+      <form [formGroup]="checkOutFormModel" (ngSubmit)="onSubmit(checkOutFormModel.value)">
+        <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="address">
+      Address
+    </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+
+        <button class="button" type="submit">Purchase</button>
+      </form>
+    </div>
+    <button [routerLink]="['/prices']">Shipping Prices</button>
+  </div>
+</div>

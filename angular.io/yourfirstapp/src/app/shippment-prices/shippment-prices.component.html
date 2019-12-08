@@ -1,0 +1,8 @@
+<p>
+Shippment Prices!
+</p>
+
+<div *ngFor="let price of prices | async">
+  <p>{{price.type}}</p>
+  <p>{{price.price}}</p>
+</div>
